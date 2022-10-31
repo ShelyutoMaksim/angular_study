@@ -1,0 +1,28 @@
+.main {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 74vh;
+  &_right {
+    &__wrapper{
+      display: flex;
+      flex: 5;
+      height: inherit;
+      .comments{
+        width: 100%;
+        padding: 1rem;
+        height: inherit;
+      }
+    }
+  }
+  &_left {
+    &__card{
+      height: inherit;
+    }
+    &__wrapper{
+      display: flex;
+      flex-direction: column;
+      flex: 2;
+      height: inherit;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+<section class="bookmarks__wrapper">
+    <div class="bookmarks__nodata" *ngIf="!dataIsEmpty">
+     {{noDataPlaceholder}}
+    </div>
+    <div class="bookmarks__cards" *ngIf="dataIsEmpty">
+      <app-card *ngFor="let card of mockData" [card]="card"></app-card>
+    </div>
+
+</section>

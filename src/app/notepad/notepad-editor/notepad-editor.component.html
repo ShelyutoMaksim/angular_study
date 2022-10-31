@@ -1,0 +1,18 @@
+<div class="notepad-editor" *ngIf="editorForm">
+  <div class="notepad-editor--title" *ngIf="isCreate">Create note</div>
+  <div class="notepad-editor__fields" [formGroup]="editorForm">
+    <div class="notepad-editor__fields--item">
+      <span class="p-float-label">
+        <input id="float-input" formControlName="title" type="text" pInputText>
+        <label for="float-input">Title</label>
+      </span>
+    </div>
+      <div class="notepad-editor__fields--item">
+        <p-editor formControlName="content" [style]="{'height':'320px'}"></p-editor>
+      </div>
+  </div>
+  <div class="notepad-editor__actions">
+    <button pButton class="p-button-outlined" label="Cancel" *ngIf="!isCreate" (click)="closeDialog()"></button>
+    <button pButton class="p-button-outlined" label="Save" (click)="saveNote()"></button>
+  </div>
+</div>

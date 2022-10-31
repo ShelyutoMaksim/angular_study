@@ -1,0 +1,28 @@
+.card {
+  margin: 20px 0;
+  width: 450px;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  &__image {
+
+  }
+
+  &__action {
+    margin: 15px 0;
+  }
+
+  &__tags {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    &--item{
+      margin: 5px;
+    }
+  }
+}

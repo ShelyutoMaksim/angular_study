@@ -1,0 +1,18 @@
+<div class="notepad">
+  <div class="notepad__list">
+    <div class="notepad__list--title">Notes</div>
+    <p-scrollPanel [style]="{width: '100%', height: 'calc(100vh - 110px)'}">
+      <div class="notepad__list__item" *ngFor="let item of notes" (click)="openCreator(item)">
+        <div class="notepad__list__item--tittle">{{item.title}}</div>
+        <div class="notepad__list__item--date">{{item.createDate | date: 'medium'}}</div>
+        <div class="notepad__list__item__delete">
+          <i class="pi pi-times" (click)="deleteNotes(item)"></i>
+        </div>
+
+      </div>
+    </p-scrollPanel>
+  </div>
+  <div class="notepad__form">
+    <app-notepad-editor></app-notepad-editor>
+  </div>
+</div>

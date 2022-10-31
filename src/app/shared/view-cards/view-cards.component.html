@@ -1,0 +1,75 @@
+<div class="main">
+  <div class="main_left__wrapper">
+    <div class="main_left__card">
+
+
+      <p-scrollPanel [style]="{width: '100%', height: '100%'}" styleClass="custom">
+        <div class="title">{{cardData?.imageName}}</div>
+        <div class="image">
+          <p-image [preview]="true" src="{{cardData?.imageLink}}" alt="Image" width="400">
+            <ng-template pTemplate="indicator">
+              <i class="pi pi-eye" style="font-size: 40px"></i>
+            </ng-template>
+          </p-image>
+        </div>
+        <div class="tags">
+          <ng-container *ngFor="let tag of cardData?.tags; let i = index">
+            <p-chip styleClass="card__tags--item" [label]="tag._content"></p-chip>
+          </ng-container>
+        </div>
+      </p-scrollPanel>
+    </div>
+  </div>
+  <div class="main_right__wrapper">
+
+    <div class="comments">
+      <p-scrollPanel [style]="{width: '100%', height: '100%'}" styleClass="custom">
+        <ng-container *ngIf="!commentsIsEmpty; else noComments">
+          <p-panel *ngFor="let comment of cardData?.comments"
+                   header="{{comment.authorname}}"
+                   [toggleable]="true" [collapsed]="true">{{comment._content}}</p-panel>
+        </ng-container>
+        <ng-template #noComments>
+          No comments
+        </ng-template>
+      </p-scrollPanel>
+    </div>
+  </div>
+</div>
+
+
+<!--<div class="main">-->
+<!--  <div class="main_left__wrapper">-->
+<!--    <div class="main_left__card">-->
+<!--      <div class="title">{{cardData?.imageName}}</div>-->
+<!--      <div class="image">-->
+<!--        <p-image [preview]="true" src="{{cardData?.imageLink}}" alt="Image" width="400">-->
+<!--          <ng-template pTemplate="indicator">-->
+<!--            <i class="pi pi-eye" style="font-size: 40px"></i>-->
+<!--          </ng-template>-->
+<!--        </p-image>-->
+<!--      </div>-->
+<!--      <div class="tags">-->
+<!--        <div class="card__tags">-->
+<!--          <ng-container *ngFor="let tag of cardData?.tags; let i = index">-->
+<!--            <p-chip styleClass="card__tags&#45;&#45;item" [label]="tag._content"></p-chip>-->
+<!--          </ng-container>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="main_right__wrapper">-->
+<!--    <div class="comments">-->
+<!--      <p-scrollPanel [style]="{width: '100%', height: '100%'}" styleClass="custom">-->
+<!--        <ng-container *ngIf="testCommentsData.length > 0; else noComments">-->
+<!--          <p-panel *ngFor="let comment of testCommentsData"-->
+<!--                   header="{{comment.title}}"-->
+<!--                   [toggleable]="true" [collapsed]="true">{{comment.description}}</p-panel>-->
+<!--        </ng-container>-->
+<!--        <ng-template #noComments>-->
+<!--          no comments-->
+<!--        </ng-template>-->
+<!--      </p-scrollPanel>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

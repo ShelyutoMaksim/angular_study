@@ -1,0 +1,19 @@
+.playingCards{
+  width: 100%;
+  &__input{
+    margin: 30px;
+  }
+  &__content{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    &--card{
+      margin: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+

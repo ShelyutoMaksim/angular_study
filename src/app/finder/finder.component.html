@@ -1,0 +1,17 @@
+<section class="finder__wrapper">
+  <div class="finder__search">
+    <span class="p-float-label finder__search__input-span">
+      <input class="finder__search__input-field" id="float-input" type="text" pInputText [(ngModel)]="searchValue" (keydown.enter)="searchCards()">
+      <label for="float-input">Search</label>
+    </span>
+  </div>
+  <ng-container>
+    <div class="finder__counter">
+      <p-paginator styleClass="finder__counter__paginator" [first]="1" [rows]="flickrApiService.perPage" [totalRecords]="totalRecords" (onPageChange)="paginate($event)"></p-paginator>
+    </div>
+    <div class="finder__cards" *ngIf="dataIsEmpty">
+      <app-card *ngFor="let card of imageData" [card]="card"></app-card>
+    </div>
+  </ng-container>
+
+</section>

@@ -1,0 +1,26 @@
+<!--<div>{{dataFromServer.repositoryFullName}}</div>-->
+
+<div class="server">
+  <div class="server__btn">
+    <button pButton *ngIf="!isDataReceived" class="p-button-text" label="Get data" (click)="getData()"></button>
+    <button pButton *ngIf="isDataReceived" class="p-button-text" label="Hide data" (click)="getData()"></button>
+  </div>
+  <div class="server__data" *ngIf="isDataReceived">
+    <p-progressSpinner *ngIf="!userIcon"></p-progressSpinner>
+    <div class="server__data__icon" *ngIf="userIcon">
+      <p-image src="{{userIcon}}" width="250px" alt="image"></p-image>
+    </div>
+    <ng-container *ngIf="userIcon">
+      <div class="server__data__fields" *ngFor="let item of dataFromServer">
+        <p>Логин пользователя: {{item.userName}}</p>
+        <p>Название репозитория: {{item.repositoryName}}</p>
+        <p>Полное название репозитория: {{item.repositoryFullName}}</p>
+        <p>Дата создания репозитория: {{item.createDate | date: 'medium'}}</p>
+        <p>Дата обновления репозитория: {{item.updateDate | date: 'medium'}}</p>
+        <p>Дата добавления в репозитория: {{item.pushDate | date: 'medium'}}</p>
+      </div>
+    </ng-container>
+
+  </div>
+
+</div>

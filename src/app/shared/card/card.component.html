@@ -1,0 +1,35 @@
+<p-card styleClass="card" *ngIf="cardNotEmpty" [pTooltip]="getAuthor">
+  <div class="card__wrapper">
+    <div class="card__image">
+      <p-image [preview]="true" src="{{card?.imageLink}}" alt="Image" width="400">
+        <ng-template pTemplate="indicator">
+          <i class="pi pi-eye" style="font-size: 40px"></i>
+        </ng-template>
+      </p-image>
+    </div>
+    <div class="card__action">
+      <button pButton class="p-button-text" label="Add to bookmarks"
+              (click)="addBookmark(bookmarksType.STANDARD_BOOKMARKS)" *ngIf="!inBookmarks"></button>
+      <button pButton class="p-button-text" label="Delete from bookmarks"
+              (click)="deleteBookmark(bookmarksType.STANDARD_BOOKMARKS)" *ngIf="inBookmarks"></button>
+      <button pButton class="p-button-text" label="Add to unique bookmarks"
+              (click)="addBookmark(bookmarksType.UNIQUE_BOOKMARKS)" *ngIf="!inUniqBookmarks"></button>
+      <button pButton class="p-button-text" label="Delete from uniq bookmarks"
+              (click)="deleteBookmark(bookmarksType.UNIQUE_BOOKMARKS)" *ngIf="inUniqBookmarks"></button>
+      <button pButton type="button" (click)="showDialog()" icon="pi pi-info-circle" label="Show"></button>
+    </div>
+
+    <div class="card__tags">
+      <ng-container *ngFor="let tag of card?.tags; let i = index">
+        <p-chip styleClass="card__tags--item" [label]="tag._content" *ngIf="i < 5; else many"></p-chip>
+        <ng-template #many>
+          <p-chip styleClass="card__tags--item" *ngIf="i < 6" [label]="'...'"></p-chip>
+        </ng-template>
+      </ng-container>
+    </div>
+
+  </div>
+
+</p-card>
+
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

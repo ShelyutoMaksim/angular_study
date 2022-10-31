@@ -1,0 +1,22 @@
+.notepad-editor {
+  padding: .5rem 1.5rem 1.5rem 1.5rem;
+
+  &--title {
+    //font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+  }
+
+  &__fields{
+    &--item{
+      margin: 20px 0;
+    }
+  }
+
+  &__actions{
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+  }
+}

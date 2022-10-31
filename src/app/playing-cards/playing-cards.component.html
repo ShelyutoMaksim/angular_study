@@ -1,0 +1,15 @@
+<div class="plyingCards">
+  <div class="playingCards__input">
+    <span class="p-float-label">
+    <input id="float-input" type="number" pInputText [(ngModel)]="cardsNumber" (keydown.enter)="getData()">
+    <label for="float-input">Number of cards</label>
+    </span>
+  </div>
+  <div class="playingCards__content">
+    <div class="playingCards__content--card" *ngFor="let card of cardArr">
+      <p-image src="{{card.image}}" width="250px" alt="image"></p-image>
+      <p>{{card.name}}</p>
+    </div>
+  </div>
+</div>
+
